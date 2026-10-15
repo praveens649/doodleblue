@@ -14,7 +14,7 @@ function App() {
     fetchData()
    
   },[])
-   console.log(data)
+
   return (
     <>
       <h1>User List</h1>
