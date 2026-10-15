@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">Click Me</button>
+    <label id="label">Counter: 0</label> 
+    <script>
+        var count = 0;
+        const button = document.getElementById("button");
+        const label = document.getElementById("label");
+        button.addEventListener('click', function() {
+            count++;
+            label.textContent = `Counter: ${count}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton" type="button">Turn on</button>
+    <p id="toggleStatus">Status: OFF</p>
+
+    <script>
+        let isOn = false;
+        const toggleButton = document.getElementById("toggleButton");
+        const toggleStatus = document.getElementById("toggleStatus");
+
+        toggleButton.addEventListener("click", function () {
+            isOn = !isOn;
+            toggleButton.textContent = isOn ? "Turn off" : "Turn on";
+            toggleStatus.textContent = isOn ? "Status: ON" : "Status: OFF";
+            document.body.style.backgroundColor = isOn ? "lightgreen" : "white";
+        });
+    </script>
+</body>
+</html>
