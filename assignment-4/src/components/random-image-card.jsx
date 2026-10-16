@@ -11,7 +11,7 @@ export const RandomImageCard = ({ data, status, loading, error }) => {
             <img className="product-card-image" src={user.images[0]} alt={user.title} />
           </div>
           <div className="product-card-content">
-            <p style={{ color: status == "200" ? "green" : "red" }}> Status {status} code</p>
+            <p style={{ color: status == "200" ? "green" : "red" }}> Status code {status}</p>
             <p className="product-card-category">{user.category}</p>
             <h2 className="product-card-title">{user.title}</h2>
             <p className="product-card-description">{user.description}</p>

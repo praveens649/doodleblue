@@ -9,6 +9,7 @@ function RandomImage() {
   const[error,setError]=useState(null);
   const [status,setStatus]=useState(null);
   useEffect(()=>{
+    let ignore=false;
     const fetchData=async()=>{
       try{
         setLoading(true);
@@ -23,14 +24,20 @@ function RandomImage() {
       }
       catch(err){
         console.log(err);
-        setError(err.message);
+        if (!ignore){
+          setError(err.message);
+        }
       }
       finally{
+        if (!ignore){
         setLoading(false);
-      }
+      }}
       
     }
     fetchData();
+    return ()=>{{
+      ignore=true;
+    }}
   },[]);
    console.log(data)
   if(loading) return <h1>Loading context......</h1>;
