@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 
-const PRODUCTS_PER_PAGE = 4
-const EMPTY_PRODUCT = { title: '', price: '', category: '', brand: '' }
+const PRODUCTS_PER_PAGE = 7
+const EMPTY_PRODUCT = { title: '', price: '', category: '', brand: '', image: '' }
 
 function App() {
   const [products, setProducts] = useState([])
@@ -58,16 +58,16 @@ function App() {
     event.preventDefault()
     if (!form.title || !form.price) return
 
-    setProducts([
-      {
-        id: `custom-${Date.now()}`,
-        ...form,
-        price: Number(form.price),
-        description: 'A product added by you.',
-        thumbnail: 'https://placehold.co/600x400/e9eadf/20241f?text=New+Product',
-      },
-      ...products,
-    ])
+    const newProduct = {
+      id: `custom-${Date.now()}`,
+      ...form,
+      price: Number(form.price),
+      description: 'A product added by you.',
+      thumbnail: form.image || 'https://placehold.co/600x400/e9eadf/20241f?text=New+Product',
+    }
+
+    console.log('Added product data:', newProduct)
+    setProducts((previousProducts) => [newProduct, ...previousProducts])
     setForm(EMPTY_PRODUCT)
     setSearch('')
     setPage(1)
@@ -99,6 +99,7 @@ function App() {
           <input name="price" value={form.price} onChange={handleFormChange} placeholder="Price" type="number" min="0" required />
           <input name="category" value={form.category} onChange={handleFormChange} placeholder="Category" />
           <input name="brand" value={form.brand} onChange={handleFormChange} placeholder="Brand" />
+          <input name="image" value={form.image} onChange={handleFormChange} placeholder="Image URL" />
           <button type="submit">Add product</button>
         </form>
       </section>
