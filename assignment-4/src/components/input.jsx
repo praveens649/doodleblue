@@ -1,6 +1,6 @@
-import react, { useState } from'react';
+import { useState } from 'react';
 
-export default function Input({data,status,error}){
+export default function Input(){
     const[search,setSearch]=useState("");
     const[debounce,setDebounce]=useState("");
     setTimeout(()=>{
