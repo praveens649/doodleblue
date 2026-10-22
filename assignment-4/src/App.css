@@ -1,0 +1,17 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+[data-theme='dark'] {
+  min-height: 100vh;
+  color: #f3f4f6;
+  background: #111827;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}

@@ -5,16 +5,20 @@ import App from './App.jsx'
 import About from './components/about.jsx'
 import Navbar from './components/navbar.jsx'
 import Project from './components/project.jsx'
+import { ThemeProvider } from './components/themeProvider.jsx'
+import './App.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/project" element={<Project />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/project" element={<Project />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>,
 )
